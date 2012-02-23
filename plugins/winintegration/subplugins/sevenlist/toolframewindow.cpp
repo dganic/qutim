@@ -242,6 +242,6 @@ QMenu *ToolFrameWindow::menu() const
 }
 
 //#include "moc_toolframewindow.cpp" //for qmake users
-#include "toolframewindow.moc" //for cmake users
+#include "moc_toolframewindow.cpp" //for cmake users
 
 

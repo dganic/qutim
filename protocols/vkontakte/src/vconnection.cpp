@@ -287,4 +287,4 @@ VRoster* VConnection::roster() const
 	return d_func()->roster;
 }
 
-#include "vconnection.moc"
+#include "moc_vconnection.cpp"

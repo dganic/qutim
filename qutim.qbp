@@ -1,0 +1,70 @@
+import qbs.base 1.0
+import qbs.fileinfo 1.0 as FileInfo
+
+Project {
+	property string qutim_version_major: '0'
+	property string qutim_version_minor: '2'
+	property string qutim_version_release: '80'
+	property string qutim_version_patch: '1'
+	property string qutim_version: qutim_version_major + '.' + qutim_version_minor + '.' + qutim_version_release + '.' + qutim_version_patch
+	property bool declarativeUi: false
+	property var additionalCppDefines: []
+	moduleSearchPaths: "qbs"
+
+	references: [
+		"core/3rdparty/k8json.qbs",
+		"core/libqutim/libqutim.qbs"
+		//"core/qutim.qbs"
+	]
+
+/*	Product {
+		name: "qutim"
+		type: ["application", "installed_content"]
+		destination: "bin"
+
+		cpp.rpaths: ["$ORIGIN/../lib"]
+		cpp.defines: project.additionalCppDefines
+		cpp.includePaths: [
+			"src",
+			"src/libs",
+			"src/shared/qtsingleapplication",
+			"src/shared/qtlockedfile",
+			buildDirectory
+		]
+
+//		Depends { name: "app_version_header" }
+		Depends { name: "cpp" }
+		Depends { name: "Qt"; submodules: ["gui", "network"] }
+//		Depends { name: "utils" }
+//		Depends { name: "extensionsystem" }
+
+		files: [
+			"src/app/main.cpp",
+			"src/shared/qtsingleapplication/qtsingleapplication.h",
+			"src/shared/qtsingleapplication/qtsingleapplication.cpp",
+			"src/shared/qtsingleapplication/qtlocalpeer.h",
+			"src/shared/qtsingleapplication/qtlocalpeer.cpp",
+			"src/shared/qtlockedfile/qtlockedfile.cpp"
+		]
+
+		Group {
+			files: "bin/qutim.sh"
+			fileTags: "install"
+		}
+
+		Group {
+		condition: qbs.targetOS == "linux" || qbs.targetOS == "macx"
+		files: [
+			"src/shared/qtlockedfile/qtlockedfile_unix.cpp"
+		]
+		}
+
+		Group {
+		condition: qbs.targetOS == "windows"
+		files: [
+			"src/shared/qtlockedfile/qtlockedfile_win.cpp"
+		]
+		}
+	}*/
+}
+

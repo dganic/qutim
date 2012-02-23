@@ -185,5 +185,5 @@ void StatisticsHelper::_q_on_finished()
 
 }
 
-//#include "statisticshelper.moc"
+//#include "moc_statisticshelper.cpp"
 

@@ -175,5 +175,5 @@ void ConferenceContactsView::changeEvent(QEvent *ev)
 }
 }
 
-#include "conferencecontactsview.moc"
+#include "moc_conferencecontactsview.cpp"
 
