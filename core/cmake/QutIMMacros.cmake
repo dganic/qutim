@@ -210,6 +210,11 @@ macro (QUTIM_ADD_PLUGIN plugin_name)
 		set( QUTIM_${plugin_name}_GROUP Plugin )
 	endif( NOT QUTIM_${plugin_name}_GROUP )
 
+
+#	set( QBS_LIBS ${QUTIM_${plugin_name}_LINK_LIBRARIES} )
+#	set( QBS_INCLUDES ${QT_QT${USED_QT_MODULE}_INCLUDE_DIRS} )
+#	set( QBS_QT_MODULES ${QUTIM_${plugin_name}_QT_LIBRARIES} )
+
 	# Link with Qt
 	list( APPEND QUTIM_${plugin_name}_QT_LIBRARIES CORE GUI )
 	foreach( USED_QT_MODULE_LOWER ${QUTIM_${plugin_name}_QT_LIBRARIES} )
@@ -263,7 +268,78 @@ macro (QUTIM_ADD_PLUGIN plugin_name)
 	file( GLOB_RECURSE QUTIM_${plugin_name}_RES "${CMAKE_CURRENT_SOURCE_DIR}/*.qrc" )
 	list( APPEND QUTIM_${plugin_name}_SRC ${QUTIM_${plugin_name}_SRC_MM} ${QUTIM_${plugin_name}_DEFAULT_ARGS})
 
+	# TEMPORARY BEGIN
+	# generate qbs file
+#	file( RELATIVE_PATH PLUGIN_QBS "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/plugins/QutimPlugin.qbs" )
+#	set( QBS_QT_MODULES_STRING "'gui'" )
+#	set( QBS_LIBS_STRING "" )
+#	set( QBS_INCLUDES_STRING "" )
+#	foreach( QBS_QT_MODULE_UPPER ${QBS_QT_MODULES} )
+#		string( TOLOWER ${QBS_QT_MODULE_UPPER} QBS_QT_MODULE )
+#		set( QBS_QT_MODULES_STRING "${QBS_QT_MODULES_STRING}, '${QBS_QT_MODULE}'" )
+#	endforeach()
+#	foreach( QBS_LIB ${QBS_LIBS} )
+#		if( NOT QBS_LIBS_STRING )
+#			set( QBS_LIBS_STRING "\tcpp.dynamicLibraries: [" )
+#		endif()
+#		set( QBS_LIBS_STRING "${QBS_LIBS_STRING}\n\t\t\"${QBS_LIB}\"," )
+#	endforeach()
+#	if( QBS_LIBS_STRING )
+#		string( REGEX REPLACE ",$" "" QBS_LIBS_STRING ${QBS_LIBS_STRING} )
+#		set( QBS_LIBS_STRING "${QBS_LIBS_STRING}\n\t]\n" )
+#	endif()
+#
+#	foreach( QBS_INCLUDE ${QBS_INCLUDES} )
+#		if( NOT QBS_INCLUDES_STRING )
+#			set( QBS_INCLUDES_STRING "\tcpp.includePaths: [" )
+#		endif()
+#		set( QBS_INCLUDES_STRING "${QBS_INCLUDES_STRING}\n\t\t\"${QBS_INCLUDE}\"," )
+#	endforeach()
+#	if( QBS_INCLUDES_STRING )
+#		string( REGEX REPLACE ",$" "" QBS_INCLUDES_STRING ${QBS_INCLUDES_STRING} )
+#		set( QBS_INCLUDES_STRING "${QBS_INCLUDES_STRING}\n\t]\n" )
+#	endif()
+#
+#	file( GLOB_RECURSE QBS_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+#		"${QUTIM_${plugin_name}_SOURCE_DIR}/*.cpp"
+#		"${QUTIM_${plugin_name}_SOURCE_DIR}/*.mm"
+#		"${QUTIM_${plugin_name}_SOURCE_DIR}/*.h"
+#		"${QUTIM_${plugin_name}_SOURCE_DIR}/*.ui"
+#		"${CMAKE_CURRENT_SOURCE_DIR}/*.qrc" )
+#	list( SORT QBS_FILES )
+#	set( QBS_FILES_STRING "" )
+#	foreach( QBS_FILE ${QBS_FILES} )
+#		set( QBS_FILES_STRING "${QBS_FILES_STRING}\t\t\"${QBS_FILE}\",\n" )
+#	endforeach()
+#	string( REGEX REPLACE ",\n$" "" QBS_FILES_STRING ${QBS_FILES_STRING} )
+#	file( WRITE "${CMAKE_CURRENT_SOURCE_DIR}/${plugin_name}.qbs"
+#"import qbs.base 1.0
+#import \"${PLUGIN_QBS}\" as QutimPlugin
+#
+#QutimPlugin {
+#	name: \"${plugin_name}\"
+#
+#	Depends { name: \"qt\"; submodules: [ ${QBS_QT_MODULES_STRING} ] }
+#${QBS_LIBS_STRING}${QBS_INCLUDES_STRING}
+#	files: [
+#${QBS_FILES_STRING}
+#	]
+#}
+#")
+	# TEMPORARY END
 	if( QUTIM_${plugin_name}_EXTENSION )
+
+#	file(RELATIVE_PATH QBS_EXTENSION_HEADER ${CMAKE_CURRENT_SOURCE_DIR} ${QUTIM_${plugin_name}_EXTENSION_HEADER})
+#	file( WRITE "${CMAKE_CURRENT_SOURCE_DIR}/${plugin_name}.plugin.json"
+#"{
+#	\"pluginIcon\": \"${QUTIM_${plugin_name}_ICON}\",
+#	\"pluginName\": \"${QUTIM_${plugin_name}_DISPLAY_NAME}\",
+#	\"pluginDescription\": \"${QUTIM_${plugin_name}_DESCRIPTION}\",
+#	\"extensionHeader\": \"${QBS_EXTENSION_HEADER}\",
+#	\"extensionClass\": \"${QUTIM_${plugin_name}_EXTENSION_CLASS}\"
+#}
+#")
+
 		# Generate ${plugin_name}plugin.cpp file
 	if( NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/${plugin_name}plugin.cpp" )
 		file( WRITE "${CMAKE_CURRENT_BINARY_DIR}/${plugin_name}plugin.cpp"

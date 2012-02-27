@@ -40,7 +40,7 @@ void FloatiesPlugin::init()
 		QLatin1String("euroelessar@yandex.ru"));
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Floaties"),
 			QT_TRANSLATE_NOOP("Plugin", "Implementation of floaty contacts"),
-			PLUGIN_VERSION(0, 2, 0, 0),
+			makePluginVersion(0, 2, 0, 0),
 			ExtensionIcon("bookmark-new"));
 	setCapabilities(Loadable);
 	m_eventId = Event::registerType("contact-list-drop");

@@ -536,5 +536,5 @@ void JProtocol::removeAccount(QObject *obj)
 }
 }
 
-#include <jprotocol.moc>
+#include "moc_jprotocol.cpp"
 

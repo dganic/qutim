@@ -32,7 +32,7 @@ namespace AesCrypto
 	{
 		setInfo(QT_TRANSLATE_NOOP("Plugin", "AES crypto service loader"),
 				QT_TRANSLATE_NOOP("Plugin", "Default qutIM crypto implementation. Based on algorithm aes256"),
-				PLUGIN_VERSION(0, 0, 1, 0));
+				makePluginVersion(0, 0, 1, 0));
 		addAuthor(QT_TRANSLATE_NOOP("Author", "Ruslan Nigmatullin"),
 				  QT_TRANSLATE_NOOP("Task", "Developer"),
 				  QLatin1String("euroelessar@yandex.ru"));

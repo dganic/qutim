@@ -37,7 +37,7 @@ void UnreadMessagesKeeper::init()
 	debug() << Q_FUNC_INFO;
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "UnreadMessagesKeeper"),
 			QT_TRANSLATE_NOOP("Plugin", "Allows you to save a list of unread messages when qutIM exit"),
-			PLUGIN_VERSION(0, 1, 0, 0));
+			makePluginVersion(0, 1, 0, 0));
 	setCapabilities(Loadable);
 	addAuthor(QT_TRANSLATE_NOOP("Author","Aleksey Sidorov"),
 			  QT_TRANSLATE_NOOP("Task","Developer"),

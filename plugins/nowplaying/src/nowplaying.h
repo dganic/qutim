@@ -26,7 +26,7 @@
 #define NOWPLAYING_H
 
 #include "settingsui.h"
-#include "player.h"
+#include "../include/player.h"
 #include <qutim/plugin.h>
 #include <qutim/actiongenerator.h>
 #include <qutim/config.h>

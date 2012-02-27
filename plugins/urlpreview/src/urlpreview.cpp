@@ -41,7 +41,7 @@ void UrlPreviewPlugin::init()
 	debug() << Q_FUNC_INFO;
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "UrlPreview"),
 			QT_TRANSLATE_NOOP("Plugin", "Preview images directly in the chat window"),
-			PLUGIN_VERSION(0, 1, 0, 0));
+			makePluginVersion(0, 1, 0, 0));
 	setCapabilities(Loadable);
 	addAuthor(QT_TRANSLATE_NOOP("Author","Alexander Kazarin"),
 			  QT_TRANSLATE_NOOP("Task","Author"),

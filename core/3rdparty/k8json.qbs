@@ -6,6 +6,12 @@ StaticLibrary {
 	Depends { name: "cpp" }
 	Depends { name: "qt"; submodules: [ 'core' ] }
 	
+	ProductModule {
+		cpp.includePaths: [
+			"."
+		]
+	}
+	
 	cpp.defines: [ "K8JSON_INCLUDE_GENERATOR", "K8JSON_INCLUDE_COMPLEX_GENERATOR" ]
 	
 	files: [

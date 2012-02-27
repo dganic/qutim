@@ -659,7 +659,7 @@ void QuetzalPlugin::init()
 {
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Quetzal"),
 			QT_TRANSLATE_NOOP("Plugin", "'Quetzal' is set of protocols, powered by libpurple"),
-			PLUGIN_VERSION(0, 0, 1, 0),
+			makePluginVersion(0, 0, 1, 0),
 			Icon("quetzal"));
 	QLibrary lib("purple");
 	lib.setLoadHints(QLibrary::ExportExternalSymbolsHint);

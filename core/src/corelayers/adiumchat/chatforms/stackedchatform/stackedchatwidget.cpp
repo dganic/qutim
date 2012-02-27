@@ -26,15 +26,16 @@
 
 #include "stackedchatwidget.h"
 #include <qutim/servicemanager.h>
-#include <chatlayer/chatviewfactory.h>
+#include <qutim/adiumchat/chatviewfactory.h>
+#include <qutim/systemintegration.h>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <qutim/actiontoolbar.h>
-#include <chatlayer/sessionlistwidget.h>
+#include <qutim/adiumchat/sessionlistwidget.h>
 #include "fingerswipegesture.h"
 #include "floatingbutton.h"
-#include <chatlayer/chatedit.h>
-#include <chatlayer/conferencecontactsview.h>
+#include <qutim/adiumchat/chatedit.h>
+#include <qutim/adiumchat/conferencecontactsview.h>
 #include <QPlainTextEdit>
 #include <qutim/debug.h>
 #include <qutim/icon.h>
@@ -45,7 +46,6 @@
 #include <QSplitter>
 #include <qutim/shortcut.h>
 #include <QToolButton>
-#include <slidingstackedwidget.h>
 #include <qutim/servicemanager.h>
 #include <QApplication>
 #include <QDesktopWidget>
@@ -53,22 +53,6 @@
 #ifdef Q_WS_MAEMO_5
 #include <kb_qwerty.h>
 #endif
-
-#ifdef Q_WS_X11
-# include <QX11Info>
-# include <X11/Xutil.h>
-# include <X11/Xlib.h>
-# include <X11/Xatom.h>
-# ifdef KeyPress
-#  undef KeyPress
-# endif
-# define MESSAGE_SOURCE_OLD            0
-# define MESSAGE_SOURCE_APPLICATION    1
-# define MESSAGE_SOURCE_PAGER          2
-#ifdef Status
-# undef Status
-#endif
-#endif //Q_WS_X11
 
 namespace Core
 {
@@ -368,28 +352,7 @@ bool StackedChatWidget::event(QEvent *event)
 
 void StackedChatWidget::activateWindow()
 {
-#ifdef Q_WS_X11
-	if (m_flags & SwitchDesktopOnActivate) {
-		static Atom NET_ACTIVE_WINDOW = 0;
-		XClientMessageEvent xev;
-
-		if(NET_ACTIVE_WINDOW == 0)
-		{
-			Display *dpy      = QX11Info::display();
-			NET_ACTIVE_WINDOW = XInternAtom(dpy, "_NET_ACTIVE_WINDOW", False);
-		}
-
-		xev.type         = ClientMessage;
-		xev.window       = winId();
-		xev.message_type = NET_ACTIVE_WINDOW;
-		xev.format       = 32;
-		xev.data.l[0]    = MESSAGE_SOURCE_PAGER;
-		xev.data.l[1]    = QX11Info::appUserTime();
-		xev.data.l[2]    = xev.data.l[3] = xev.data.l[4] = 0;
-
-		XSendEvent(QX11Info::display(), QX11Info::appRootWindow(), False, SubstructureNotifyMask | SubstructureRedirectMask, (XEvent*)&xev);
-	}
-#endif//Q_WS_X11
+	SystemIntegration::activate(this, m_flags & SwitchDesktopOnActivate);
 	AbstractChatWidget::activateWindow();
 }
 

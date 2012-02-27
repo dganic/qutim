@@ -25,12 +25,12 @@
 
 #include "abstractchatform.h"
 #include "abstractchatwidget.h"
-#include "chatviewfactory.h"
+#include "../chatviewfactory.h"
 #include <qutim/conference.h>
 #include <qutim/configbase.h>
 #include <qutim/messagesession.h>
 #include <qutim/debug.h>
-#include <chatlayer/chatsessionimpl.h>
+#include <qutim/adiumchat/chatsessionimpl.h>
 #include <QPlainTextEdit>
 #include <qutim/systemintegration.h>
 #include <qutim/servicemanager.h>

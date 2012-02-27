@@ -40,7 +40,7 @@ void UnityLauncherPlugin::init ()
 			);
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "UnityLauncher"),
 			QT_TRANSLATE_NOOP("Plugin", "Ubuntu Unity panel integration"),
-			PLUGIN_VERSION(0, 0, 1, 1),
+			makePluginVersion(0, 0, 1, 1),
 			icon
 			);
 	setCapabilities(Loadable);

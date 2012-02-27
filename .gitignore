@@ -1,3 +1,7 @@
+*~
+debian*/qutim
+debian*/qutim-dbg
+debian
 CMakeLists.txt.user
 .directory
 .DS_Store
@@ -5,5 +9,6 @@ CMakeLists.txt.user
 qtcreator-build
 *.user
 build
+__build
 android
 libs

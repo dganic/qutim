@@ -28,6 +28,7 @@
 #include <qutim/icon.h>
 #include <qutim/debug.h>
 #include <qutim/systemintegration.h>
+#include <qutim/libqutim_version.h>
 #include <QApplication>
 #include <QTimer>
 

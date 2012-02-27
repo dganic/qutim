@@ -23,8 +23,8 @@
 **
 ****************************************************************************/
 #include "sessionlistwidget.h"
-#include <chatlayer/chatlayerimpl.h>
-#include <chatlayer/chatsessionimpl.h>
+#include <qutim/adiumchat/chatlayerimpl.h>
+#include <qutim/adiumchat/chatsessionimpl.h>
 #include <QModelIndex>
 #include <QHelpEvent>
 #include <qutim/tooltip.h>

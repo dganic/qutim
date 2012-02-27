@@ -19,10 +19,9 @@ else(HUNSPELL_LIBRARY AND HUNSPELL_INCLUDE_DIR)
   return()
 endif(HUNSPELL_LIBRARY AND HUNSPELL_INCLUDE_DIR)
 
-include_directories( ${HUNSPELL_INCLUDE_DIR} )
-
 qutim_add_plugin( hunspeller
 	DISPLAY_NAME "HunSpell checker"
 	DESCRIPTION "Check spelling by HunSpell library"
 	LINK_LIBRARIES ${HUNSPELL_LIBRARY}
+	INCLUDE_DIRS ${HUNSPELL_INCLUDE_DIR}
 )

@@ -29,12 +29,12 @@
 
 using namespace qutim_sdk_0_3;
 
-class DPlugin : public Plugin
+class DBusNotificationsPlugin : public Plugin
 {
 	Q_OBJECT
 	Q_CLASSINFO("DebugName", "Freedesktop")
 public:
-			DPlugin();
+	DBusNotificationsPlugin();
 	void init();
 	bool load();
 	bool unload();

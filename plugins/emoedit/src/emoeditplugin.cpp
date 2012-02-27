@@ -62,7 +62,7 @@ void EmoEditPlugin::init()
 			  QLatin1String("euroelessar@yandex.ru"));
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "EmoEdit plugin"),
 			QT_TRANSLATE_NOOP("Plugin", "Add emoticons to text edit widget"),
-			PLUGIN_VERSION(0, 0, 1, 0),
+			makePluginVersion(0, 0, 1, 0),
 			ExtensionIcon());
 	setCapabilities(Loadable);
 	m_inParsingState = false;

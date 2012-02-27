@@ -1,30 +1,37 @@
-<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
-"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node>
-  <interface name="org.freedesktop.Notifications">
-    <method name="GetServerInformation">
-      <arg name="return_name" type="s" direction="out"/>
-      <arg name="return_vendor" type="s" direction="out"/>
-      <arg name="return_version" type="s" direction="out"/>
-      <arg name="return_spec_version" type="s" direction="out"/>
-    </method>
-    <method name="GetCapabilities">
-      <arg name="return_caps" type="as" direction="out"/>
-    </method>
-    <method name="CloseNotification">
-      <arg name="id" type="u" direction="in"/>
-    </method>
-    <method name="Notify">
-      <arg name="app_name" type="s" direction="in"/>
-      <arg name="id" type="u" direction="in"/>
-      <arg name="icon" type="s" direction="in"/>
-      <arg name="summary" type="s" direction="in"/>
-      <arg name="body" type="s" direction="in"/>
-      <arg name="actions" type="as" direction="in"/>
-      <arg name="hints" type="a{sv}" direction="in"/>
-      <annotation name="com.trolltech.QtDBus.QtTypeName.In6" value="QVariantMap"/>
-      <arg name="timeout" type="i" direction="in"/>
-      <arg name="return_id" type="u" direction="out"/>
-    </method>
-  </interface>
+	<interface name="org.freedesktop.Notifications">
+		<method name="Notify">
+			<annotation value="QVariantMap" name="com.trolltech.QtDBus.QtTypeName.In6"/>
+			<arg direction="out" type="u"/>
+			<arg direction="in" type="s" name="app_name"/>
+			<arg direction="in" type="u" name="replaces_id"/>
+			<arg direction="in" type="s" name="app_icon"/>
+			<arg direction="in" type="s" name="summary"/>
+			<arg direction="in" type="s" name="body"/>
+			<arg direction="in" type="as" name="actions"/>
+			<arg direction="in" type="a{sv}" name="hints"/>
+			<arg direction="in" type="i" name="timeout"/>
+		</method>
+		<method name="CloseNotification">
+			<arg direction="in" type="u" name="id"/>
+		</method>
+		<method name="GetCapabilities">
+			<arg direction="out" type="as" name="caps"/>
+		</method>
+		<method name="GetServerInformation">
+			<arg direction="out" type="s" name="name"/>
+			<arg direction="out" type="s" name="vendor"/>
+			<arg direction="out" type="s" name="version"/>
+			<arg direction="out" type="s" name="spec_version"/>
+		</method>
+		<signal name="NotificationClosed">
+			<arg direction="out" type="u" name="id"/>
+			<arg direction="out" type="u" name="reason"/>
+		</signal>
+		<signal name="ActionInvoked">
+			<arg direction="out" type="u" name="id"/>
+			<arg direction="out" type="s" name="action_key"/>
+		</signal>
+	</interface>
 </node>

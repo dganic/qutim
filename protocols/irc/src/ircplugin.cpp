@@ -40,7 +40,7 @@ void IrcPlugin::init()
 {
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "IRC"),
 			QT_TRANSLATE_NOOP("Plugin", "Implementation of IRC protocol"),
-			PLUGIN_VERSION(0, 0, 1, 0));
+			makePluginVersion(0, 0, 1, 0));
 	addAuthor(QT_TRANSLATE_NOOP("Author", "Alexey Prokhin"),
 			  QT_TRANSLATE_NOOP("Task", "Author"),
 			  QLatin1String("alexey.prokhin@yandex.ru"));

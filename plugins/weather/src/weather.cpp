@@ -38,7 +38,7 @@ void WeatherPlugin::init()
 				QLatin1String("null@deltaz.org"));
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Weather plugin"),
 				QT_TRANSLATE_NOOP("Plugin", "Plugin shows a current weather in your city."),
-				PLUGIN_VERSION(0, 0, 1, 0),
+				makePluginVersion(0, 0, 1, 0),
 				ExtensionIcon(QIcon(":/icons/weather.png")));
 	setCapabilities(Loadable);
 	ActionGenerator *gen = new ActionGenerator(QIcon(":/icons/weather.png"),

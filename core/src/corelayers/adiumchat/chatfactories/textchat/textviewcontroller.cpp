@@ -41,7 +41,7 @@
 #include <qutim/debug.h>
 #include <qutim/emoticons.h>
 #include <qutim/thememanager.h>
-#include <chatlayer/chatsessionimpl.h>
+#include <qutim/adiumchat/chatsessionimpl.h>
 
 using namespace qutim_sdk_0_3;
 

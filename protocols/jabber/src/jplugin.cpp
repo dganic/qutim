@@ -51,7 +51,7 @@ void JPlugin::init()
 	ExtensionIcon jabberIcon("im-jabber");
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Jabber"),
 			QT_TRANSLATE_NOOP("Plugin", "Jabber protocol"),
-			PLUGIN_VERSION(0, 0, 1, 0),
+			makePluginVersion(0, 0, 1, 0),
 			jabberIcon);
 	addAuthor(QT_TRANSLATE_NOOP("Author", "Denis Daschenko"),
 			  QT_TRANSLATE_NOOP("Task", "Author"),

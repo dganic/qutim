@@ -28,7 +28,7 @@
 #define STACKEDCHATWIDGET_H
 
 #include <QWidget>
-#include <chatforms/abstractchatwidget.h>
+#include <qutim/adiumchat/abstractchatwidget.h>
 #include <slidingstackedwidget.h>
 #include "floatingbutton.h"
 

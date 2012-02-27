@@ -138,7 +138,7 @@ void BirthdayReminder::init()
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "BirthdayReminder"),
 			QT_TRANSLATE_NOOP("Plugin", "This plugin shows notifications when someone from "
 										"your contact list has a birthday"),
-			PLUGIN_VERSION(0, 1, 0, 0));
+			makePluginVersion(0, 1, 0, 0));
 	setCapabilities(Loadable);
 }
 

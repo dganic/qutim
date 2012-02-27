@@ -38,7 +38,7 @@ void VkontaktePlugin::init()
 	debug() << Q_FUNC_INFO;
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Vkontakte"),
 			QT_TRANSLATE_NOOP("Plugin", "Simple implementation of vkontakte, based on userapi.ru"),
-			PLUGIN_VERSION(0, 0, 1, 0));
+			makePluginVersion(0, 0, 1, 0));
 	addAuthor(QT_TRANSLATE_NOOP("Author", "Aleksey Sidorov"),
 			  QT_TRANSLATE_NOOP("Task", "Author"),
 			  QLatin1String("gorthauer87@yandex.ru"));

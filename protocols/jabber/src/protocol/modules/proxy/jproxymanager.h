@@ -26,7 +26,7 @@
 #ifndef OSCARPROXY_H
 #define OSCARPROXY_H
 
-#include "jabber_global.h"
+#include "../../../jabber_global.h"
 #include <qutim/networkproxy.h>
 
 namespace Jabber {

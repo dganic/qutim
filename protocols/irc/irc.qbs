@@ -1,0 +1,65 @@
+import qbs.base 1.0
+import "../../plugins/QutimPlugin.qbs" as QutimPlugin
+
+QutimPlugin {
+	name: "irc"
+
+	Depends { name: "qt"; submodules: [ 'core', 'gui', 'network' ] }
+
+	files: [
+		"src/ircaccount.cpp",
+		"src/ircaccount.h",
+		"src/ircaccount_p.h",
+		"src/ircactiongenerator.cpp",
+		"src/ircactiongenerator.h",
+		"src/ircactiongenerator_p.h",
+		"src/ircavatar.cpp",
+		"src/ircavatar.h",
+		"src/ircchannel.cpp",
+		"src/ircchannel.h",
+		"src/ircchannel_p.h",
+		"src/ircchannelparticipant.cpp",
+		"src/ircchannelparticipant.h",
+		"src/irccommandalias.cpp",
+		"src/irccommandalias.h",
+		"src/ircconnection.cpp",
+		"src/ircconnection.h",
+		"src/irccontact.cpp",
+		"src/irccontact.h",
+		"src/irccontact_p.h",
+		"src/ircctpchandler.cpp",
+		"src/ircctpchandler.h",
+		"src/ircglobal.h",
+		"src/ircgroupchatmanager.cpp",
+		"src/ircgroupchatmanager.h",
+		"src/ircplugin.cpp",
+		"src/ircplugin.h",
+		"src/ircprotocol.cpp",
+		"src/ircprotocol.h",
+		"src/ircprotocol_p.h",
+		"src/ircproxymanager.cpp",
+		"src/ircproxymanager.h",
+		"src/ircservermessagehandler.cpp",
+		"src/ircservermessagehandler.h",
+		"src/ircstandartctpchandler.cpp",
+		"src/ircstandartctpchandler.h",
+		"src/ircwhoisreplieshandler.cpp",
+		"src/ircwhoisreplieshandler.h",
+		"src/ui/accountcreator.cpp",
+		"src/ui/accountcreator.h",
+		"src/ui/addaccountform.ui",
+		"src/ui/console.ui",
+		"src/ui/editnickform.ui",
+		"src/ui/ircaccountmainsettings.cpp",
+		"src/ui/ircaccountmainsettings.h",
+		"src/ui/ircaccountnicksettings.cpp",
+		"src/ui/ircaccountnicksettings.h",
+		"src/ui/ircchannellist.cpp",
+		"src/ui/ircchannellist.h",
+		"src/ui/ircchannellist.ui",
+		"src/ui/ircconsole.cpp",
+		"src/ui/ircconsole.h",
+		"src/ui/ircsettingswidget.cpp",
+		"src/ui/ircsettingswidget.h"
+	]
+}

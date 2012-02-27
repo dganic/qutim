@@ -105,7 +105,7 @@ else(MINGW)
 	LIST (APPEND SOURCES qutim.rc)
 endif(MINGW)
 
-add_subdirectory(libqutim)
+add_subdirectory(lib)
 
 find_package(QutIM REQUIRED)
 include_directories( ${QUTIM_INCLUDE_DIR} "${CMAKE_CURRENT_BINARY_DIR}/libqutim/include/qutim_hook" )
@@ -308,8 +308,8 @@ endif( LANGUAGE )
 
 FILE(GLOB CMAKE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/cmake/*.cmake")
 
-FILE (GLOB DEV_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/libqutim/*.h")
-FILE (GLOB DEV_HEADERS_EXCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/libqutim/*_p.h")
+FILE (GLOB DEV_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/lib/qutim/*.h")
+FILE (GLOB DEV_HEADERS_EXCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/lib/qutim/*_p.h")
 LIST(REMOVE_ITEM DEV_HEADERS ${DEV_HEADERS_EXCLUDE})
 
 INSTALL(FILES ${CMAKE_MODULES}

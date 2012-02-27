@@ -76,9 +76,9 @@ const QDBusArgument& operator>> (const QDBusArgument& arg, DBusNotifyImageData &
 
 DBusBackend::DBusBackend() :
 	NotificationBackend("Popup"),
-	interface(new org::freedesktop::Notifications(
-			"org.freedesktop.Notifications",
-			"/org/freedesktop/Notifications",
+	interface(new DBusNotifications(
+			QLatin1String("org.freedesktop.Notifications"),
+			QLatin1String("/org/freedesktop/Notifications"),
 			QDBusConnection::sessionBus()))
 {
 	setDescription(QT_TR_NOOP("Show popup"));
@@ -87,29 +87,14 @@ DBusBackend::DBusBackend() :
 	if (!interface->isValid()) {
 		qWarning() << "Error connecting to notifications service.";
 	}
-	QDBusMessage message = QDBusMessage::createMethodCall(
-	            QLatin1String("org.freedesktop.Notifications"),
-	            QLatin1String("/org/freedesktop/Notifications"),
-	            QLatin1String("org.freedesktop.Notifications"),
-	            QLatin1String("GetCapabilities"));
-	QDBusPendingReply<QStringList> call = QDBusConnection::sessionBus().asyncCall(message);
+	QDBusPendingReply<QStringList> call = interface->GetCapabilities();
 	QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 	connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)),
 	        this, SLOT(capabilitiesCallFinished(QDBusPendingCallWatcher*)));
-
-	QDBusConnection::sessionBus().connect(
-				QString(),
-				"/org/freedesktop/Notifications",
-				"org.freedesktop.Notifications",
-				"ActionInvoked",
-				this, SLOT(onActionInvoked(quint32,QString)));
-
-	QDBusConnection::sessionBus().connect(
-				QString(),
-				"/org/freedesktop/Notifications",
-				"org.freedesktop.Notifications",
-				"NotificationClosed",
-				this, SLOT(onNotificationClosed(quint32,quint32)));
+	connect(interface.data(), SIGNAL(ActionInvoked(uint,QString)),
+	        SLOT(onActionInvoked(uint,QString)));
+	connect(interface.data(), SIGNAL(NotificationClosed(uint,uint)),
+	        SLOT(onNotificationClosed(uint,uint)));
 }
 
 
@@ -201,7 +186,7 @@ void DBusBackend::capabilitiesCallFinished(QDBusPendingCallWatcher* watcher)
 	m_capabilities = QSet<QString>::fromList(reply.argumentAt<0>());
 }
 
-void DBusBackend::onActionInvoked(quint32 id, const QString &name)
+void DBusBackend::onActionInvoked(uint id, const QString &name)
 {
 	NotificationData data = m_notifications.value(id);
 	foreach (const NotificationAction &action, data.actions.values(name))
@@ -226,24 +211,17 @@ void DBusBackend::onActionInvoked(quint32 id, const QString &name)
 inline void DBusBackend::ignore(NotificationData &data)
 {
 	Q_UNUSED(data);
-	foreach (const QPointer<Notification> &notification, data.notifications)
+	foreach (const QPointer<Notification> &notification, data.notifications) {
 		if (notification)
 			notification->ignore();
+	}
 }
 
-void DBusBackend::onNotificationClosed(quint32 id, quint32 reason)
+void DBusBackend::onNotificationClosed(uint id, uint reason)
 {
-	/*
-	  The reasons:
-	  1 - The notification expired.
-	  2 - The notification was dismissed by the user.
-	  3 - The notification was closed by a call to CloseNotification.
-	  4 - Undefined/reserved reasons.
-	 */
-
 	QHash<quint32, NotificationData>::iterator itr = m_notifications.find(id);
 	if (itr != m_notifications.end()) {
-		if (reason == 2)
+		if (reason == NotificationDismissed)
 			ignore(*itr);
 		m_ids.remove(itr->sender);
 		foreach (const QPointer<Notification> &notification, itr->notifications)

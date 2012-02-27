@@ -33,7 +33,7 @@ void PhononSoundPlugin::init()
 			  QLatin1String("euroelessar@yandex.ru"));
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Phonon sound engine"),
 			QT_TRANSLATE_NOOP("Plugin", "Sound engine based on KDE sound engine"),
-			PLUGIN_VERSION(0, 1, 0, 0),
+			makePluginVersion(0, 1, 0, 0),
 			ExtensionIcon());
 	setCapabilities(Loadable);
 	addExtension<PhononSoundBackend>(

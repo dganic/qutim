@@ -47,7 +47,7 @@ void ClientIdentify::init()
 {
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "OscarIdentify"),
 			QT_TRANSLATE_NOOP("Plugin", "Client identificaton for oscar contacts"),
-			PLUGIN_VERSION(0, 0, 1, 0));
+			makePluginVersion(0, 0, 1, 0));
 	setCapabilities(Loadable);
 	addAuthor(QT_TRANSLATE_NOOP("Author", "Alexey Ignatiev"),
 			  QT_TRANSLATE_NOOP("Task", "Author"),

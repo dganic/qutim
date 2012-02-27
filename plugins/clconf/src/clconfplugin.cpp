@@ -41,7 +41,7 @@ void ClConfPlugin::init()
 			  QLatin1String("alexey.prokhin@yandex.ru"));
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Conferences in contact list"),
 			QT_TRANSLATE_NOOP("Plugin", "Plugin adds your conferences to the contact list"),
-			PLUGIN_VERSION(0, 0, 1, 0),
+			makePluginVersion(0, 0, 1, 0),
 			ExtensionIcon());
 	setCapabilities(Loadable);
 }

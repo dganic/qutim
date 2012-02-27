@@ -4,10 +4,9 @@ if( NOT ASPELL_FOUND )
 	return()
 endif( NOT ASPELL_FOUND )
 
-include_directories( ${ASPELL_INCLUDE_DIR} )
-
 qutim_add_plugin( aspeller
 	DISPLAY_NAME "ASpell checker"
 	DESCRIPTION "Check spelling by ASpell library"
 	LINK_LIBRARIES ${ASPELL_LIBRARIES}
+	INCLUDE_DIRS ${ASPELL_INCLUDE_DIR}
 )

@@ -27,7 +27,7 @@
 
 #include <QWidget>
 #include <qutim/settingswidget.h>
-#include <contactlistitemdelegate.h>
+#include "../contactlistitemdelegate.h"
 #include <qutim/simplecontactlist/simplecontactlistsettings.h>
 #include <qutim/config.h>
 

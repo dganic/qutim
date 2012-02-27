@@ -23,7 +23,7 @@
 **
 ****************************************************************************/
 #include "settingsui.h"
-#include "player.h"
+#include "../include/player.h"
 #include <qutim/objectgenerator.h>
 #include "accounttunestatus.h"
 #include "ui_nowplayingsettings.h"

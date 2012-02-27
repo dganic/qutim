@@ -52,7 +52,7 @@ void OscarPlugin::init()
 	qRegisterMetaTypeStreamOperators<FeedbagItem>("qutim_sdk_0_3::oscar::FeedbagItem");
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Oscar"),
 			QT_TRANSLATE_NOOP("Plugin", "Module-based implementation of Oscar protocol"),
-			PLUGIN_VERSION(0, 0, 1, 0));
+			makePluginVersion(0, 0, 1, 0));
 	addAuthor(QT_TRANSLATE_NOOP("Author", "Ruslan Nigmatullin"),
 			  QT_TRANSLATE_NOOP("Task", "Author"),
 			  QLatin1String("euroelessar@yandex.ru"));

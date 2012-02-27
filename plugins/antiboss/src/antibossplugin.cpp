@@ -41,7 +41,7 @@ void AntiBossPlugin::init()
 			  QLatin1String("euroelessar@yandex.ru"));
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Anti-boss plugin"),
 			QT_TRANSLATE_NOOP("Plugin", "Plugin makes your chatting invisible for boss"),
-			PLUGIN_VERSION(0, 0, 1, 0),
+			makePluginVersion(0, 0, 1, 0),
 			ExtensionIcon());
 	setCapabilities(Loadable);
 	GlobalShortcut::registerSequence("antiboss",

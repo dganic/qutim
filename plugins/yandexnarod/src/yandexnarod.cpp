@@ -51,7 +51,7 @@ void YandexNarodPlugin::init()
 {
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "YandexNarod"),
 			QT_TRANSLATE_NOOP("Plugin", "Send files via Yandex.Narod filehosting service"),
-			PLUGIN_VERSION(0, 2, 1, 0));
+			makePluginVersion(0, 2, 1, 0));
 	setCapabilities(Loadable);
 	addAuthor(QT_TRANSLATE_NOOP("Author","Aleksey Sidorov"),
 			  QT_TRANSLATE_NOOP("Task","Developer"),

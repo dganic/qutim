@@ -38,7 +38,7 @@ void HistoryManagerPlugin::init()
 		QLatin1String("euroelessar@yandex.ru"));
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "HistMan"),
 			QT_TRANSLATE_NOOP("Plugin", "Plugin makes possible to import history to qutIM from different messengers"),
-			PLUGIN_VERSION(0, 2, 0, 0),
+			makePluginVersion(0, 2, 0, 0),
 			ExtensionIcon("view-history"));
 	setCapabilities(Loadable);
 }

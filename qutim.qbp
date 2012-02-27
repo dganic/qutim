@@ -9,62 +9,115 @@ Project {
 	property string qutim_version: qutim_version_major + '.' + qutim_version_minor + '.' + qutim_version_release + '.' + qutim_version_patch
 	property bool declarativeUi: false
 	property var additionalCppDefines: []
-	moduleSearchPaths: "qbs"
+	moduleSearchPaths: "qbs_modules"
 
 	references: [
+		"core/lib/libqutim.qbs",
+		"core/qutim.qbs",
 		"core/3rdparty/k8json.qbs",
-		"core/libqutim/libqutim.qbs"
-		//"core/qutim.qbs"
+		"core/3rdparty/qxdg.qbs",
+		"core/3rdparty/flowlayout.qbs",
+		"core/3rdparty/slidingstackedwidget.qbs",
+		"core/src/corelayers/accountcreator/accountcreator.qbs",
+		"core/src/corelayers/addcontactdlg/addcontactdlg.qbs",
+		"core/src/corelayers/adiumchat/adiumchat.qbs",
+		"core/src/corelayers/adiumchat/chatfactories/textchat/textchat.qbs",
+		"core/src/corelayers/adiumchat/chatforms/stackedchatform/stackedchatform.qbs",
+		"core/src/corelayers/adiumchat/chatforms/tabbedchatform/tabbedchatform.qbs",
+		"core/src/corelayers/adiumsrvicons/adiumsrvicons.qbs",
+		"core/src/corelayers/authdialog/authdialog.qbs",
+		"core/src/corelayers/chatnotificationsbackend/chatnotificationsbackend.qbs",
+		"core/src/corelayers/chatspellchecker/chatspellchecker.qbs",
+		"core/src/corelayers/contactinfo/contactinfo.qbs",
+		"core/src/corelayers/dataformsbackend/dataformsbackend.qbs",
+		"core/src/corelayers/emoticonssettings/emoticonssettings.qbs",
+		"core/src/corelayers/filetransfer/filetransfer.qbs",
+		"core/src/corelayers/filetransfersettings/filetransfersettings.qbs",
+		"core/src/corelayers/idledetector/idledetector.qbs",
+		"core/src/corelayers/idlestatuschanger/idlestatuschanger.qbs",
+		"core/src/corelayers/joinchatdialog/joinchatdialog.qbs",
+		"core/src/corelayers/joingroupchatdlg/joingroupchatdlg.qbs",
+		"core/src/corelayers/jsonconfig/jsonconfig.qbs",
+		"core/src/corelayers/jsonhistory/jsonhistory.qbs",
+		"core/src/corelayers/kineticscroller/kineticscroller.qbs",
+		"core/src/corelayers/kopeteemoticonsbackend/kopeteemoticonsbackend.qbs",
+		"core/src/corelayers/localization/localization.qbs",
+		"core/src/corelayers/metacontacts/metacontacts.qbs",
+		"core/src/corelayers/migration02x03/migration02x03.qbs",
+		"core/src/corelayers/mobileabout/mobileaboutdialog.qbs",
+		"core/src/corelayers/mobilecontactinfo/mobilecontactinfo.qbs",
+		"core/src/corelayers/mobilenotificationssettings/mobilenotificationssettings.qbs",
+		"core/src/corelayers/mobilesettingsdialog/mobilesettingsdialog.qbs",
+		"core/src/corelayers/nocryptoservice/nocryptoservice.qbs",
+		"core/src/corelayers/notificationfilter/notificationfilter.qbs",
+		"core/src/corelayers/notificationssettings/notificationssettings.qbs",
+		"core/src/corelayers/oldsoundtheme/oldsoundtheme.qbs",
+		"core/src/corelayers/password/password.qbs",
+		"core/src/corelayers/plistconfig/plistconfig.qbs",
+		"core/src/corelayers/proxysettings/proxysettings.qbs",
+		"core/src/corelayers/qticons/qticons.qbs",
+		"core/src/corelayers/searchdialog/searchdialog.qbs",
+		"core/src/corelayers/servicechooser/servicechooser.qbs",
+		"core/src/corelayers/sessionhelper/sessionhelper.qbs",
+		"core/src/corelayers/shortcutsettings/shortcutsettings.qbs",
+		"core/src/corelayers/simpleabout/simpleaboutdialog.qbs",
+		"core/src/corelayers/simpleactionbox/simpleactionbox.qbs",
+		"core/src/corelayers/simpleactions/simpleactions.qbs",
+		"core/src/corelayers/simplecontactlist/models/plaincontactsmodel/plaincontactsmodel.qbs",
+		"core/src/corelayers/simplecontactlist/models/separatedcontactsmodel/separatedcontactsmodel.qbs",
+		"core/src/corelayers/simplecontactlist/models/treecontactsmodel/treecontactsmodel.qbs",
+		"core/src/corelayers/simplecontactlist/simplecontactdelegate.qbs",
+		"core/src/corelayers/simplecontactlist/simplecontactlist.qbs",
+		"core/src/corelayers/simplecontactlist/widgets/simplecontactlistwidget/simplecontactlistwidget.qbs",
+		"core/src/corelayers/simplecontactlist/widgets/torycontactlistwidget/torycontactlistwidget.qbs",
+		"core/src/corelayers/simplerosterstorage/simplerosterstorage.qbs",
+		"core/src/corelayers/soundthemeselector/soundthemeselector.qbs",
+		"core/src/corelayers/trayicon/trayicon.qbs",
+		"core/src/corelayers/xsettingsdialog/xsettingsdialog.qbs",
+		"plugins/adiumwebview/adiumwebview.qbs",
+		"plugins/adiumwebview/lib/qutim-adiumwebview.qbs",
+		"plugins/aescrypto/aescrypto.qbs",
+		"plugins/antiboss/antiboss.qbs",
+		"plugins/antispam/antispam.qbs",
+		"plugins/awn/awn.qbs",
+		"plugins/birthdayreminder/birthdayreminder.qbs",
+		"plugins/clconf/clconf.qbs",
+		"plugins/dbusapi/dbusapi.qbs",
+		"plugins/dbusnotifications/dbusnotifications.qbs",
+		"plugins/emoedit/emoedit.qbs",
+		"plugins/floaties/floaties.qbs",
+		"plugins/histman/histman.qbs",
+		"plugins/indicator/indicator.qbs",
+//		"plugins/kdeintegration/kdeintegration.qbs",
+		"plugins/kineticpopups/src/kineticpopups.qbs",
+		"plugins/logger/logger.qbs",
+		"plugins/massmessaging/massmessaging.qbs",
+		"plugins/mobility/src/bearermanager/bearermanager.qbs",
+		"plugins/mobility/src/multimediabackend/multimediabackend.qbs",
+		"plugins/nowplaying/nowplaying.qbs",
+		"plugins/oldcontactdelegate/oldcontactdelegate.qbs",
+		"plugins/phononsound/phononsound.qbs",
+//		"plugins/plugman/plugman.qbs",
+		"plugins/qmlchat/qmlchat.qbs",
+		"plugins/qrcicons/qrcicons.qbs",
+		"plugins/scriptapi/scriptapi.qbs",
+		"plugins/sdlsound/sdlsound.qbs",
+		"plugins/unitylauncher/unitylauncher.qbs",
+		"plugins/unreadmessageskeeper/unreadmessageskeeper.qbs",
+		"plugins/urlpreview/urlpreview.qbs",
+		"plugins/weather/weather.qbs",
+		"plugins/yandexnarod/yandexnarod.qbs",
+		"protocols/irc/irc.qbs",
+		"protocols/jabber/jabber.qbs",
+		"protocols/jabber/jreen.qbs",
+		"protocols/mrim/mrim.qbs",
+		"protocols/oscar/oscar.qbs",
+		"protocols/oscar/plugins/identify/oscaridentify.qbs",
+		"protocols/oscar/plugins/xstatus/oscarxstatus.qbs",
+		"protocols/quetzal/quetzal.qbs",
+		"protocols/vkontakte/plugins/photoalbum/vphotoalbum.qbs",
+		"protocols/vkontakte/plugins/wall/vkontaktewall.qbs",
+		"protocols/vkontakte/vkontakte.qbs"
 	]
-
-/*	Product {
-		name: "qutim"
-		type: ["application", "installed_content"]
-		destination: "bin"
-
-		cpp.rpaths: ["$ORIGIN/../lib"]
-		cpp.defines: project.additionalCppDefines
-		cpp.includePaths: [
-			"src",
-			"src/libs",
-			"src/shared/qtsingleapplication",
-			"src/shared/qtlockedfile",
-			buildDirectory
-		]
-
-//		Depends { name: "app_version_header" }
-		Depends { name: "cpp" }
-		Depends { name: "Qt"; submodules: ["gui", "network"] }
-//		Depends { name: "utils" }
-//		Depends { name: "extensionsystem" }
-
-		files: [
-			"src/app/main.cpp",
-			"src/shared/qtsingleapplication/qtsingleapplication.h",
-			"src/shared/qtsingleapplication/qtsingleapplication.cpp",
-			"src/shared/qtsingleapplication/qtlocalpeer.h",
-			"src/shared/qtsingleapplication/qtlocalpeer.cpp",
-			"src/shared/qtlockedfile/qtlockedfile.cpp"
-		]
-
-		Group {
-			files: "bin/qutim.sh"
-			fileTags: "install"
-		}
-
-		Group {
-		condition: qbs.targetOS == "linux" || qbs.targetOS == "macx"
-		files: [
-			"src/shared/qtlockedfile/qtlockedfile_unix.cpp"
-		]
-		}
-
-		Group {
-		condition: qbs.targetOS == "windows"
-		files: [
-			"src/shared/qtlockedfile/qtlockedfile_win.cpp"
-		]
-		}
-	}*/
 }
 

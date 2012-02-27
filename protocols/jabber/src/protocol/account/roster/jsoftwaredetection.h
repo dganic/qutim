@@ -30,7 +30,7 @@
 #include <QSet>
 #include <QBasicTimer>
 #include <QStringList>
-#include "sdk/jabber.h"
+#include "../../../sdk/jabber.h"
 #include <jreen/disco.h>
 
 namespace qutim_sdk_0_3 {

@@ -5,11 +5,10 @@ if( NOT QCA2_FOUND )
 	return()
 endif( NOT QCA2_FOUND )
 
-include_directories(${QCA2_INCLUDE_DIR})
-
 qutim_add_plugin( aescrypto
 	QT_LIBRARIES NETWORK
 	LINK_LIBRARIES ${QCA2_LIBRARIES}
+	INCLUDE_DIRS ${QCA2_INCLUDE_DIR}
 	DISPLAY_NAME "AES crypto service loader"
 	DESCRIPTION "Default qutIM crypto implementation. Based on algorithm aes256"
 )

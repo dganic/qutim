@@ -40,7 +40,7 @@ void IndicatorPlugin::init ()
 			);
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "Indicator"),
 			QT_TRANSLATE_NOOP("Plugin", "Ubuntu Indicator applet integration"),
-			PLUGIN_VERSION(0, 0, 1, 1),
+			makePluginVersion(0, 0, 1, 1),
 			icon
 			);
 	setCapabilities(Loadable);

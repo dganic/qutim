@@ -26,18 +26,18 @@
 #include "dbusbackend.h"
 
 
-DPlugin::DPlugin()
+DBusNotificationsPlugin::DBusNotificationsPlugin()
 {
 	qDebug("%s", Q_FUNC_INFO);
 }
 
-void DPlugin::init()
+void DBusNotificationsPlugin::init()
 {
 	qDebug("%s", Q_FUNC_INFO);
 	ExtensionIcon dIcon("mac");
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "DBus notifications"),
 		QT_TRANSLATE_NOOP("Plugin", "Notification system based on Freedesktop DBus protocol"),
-		PLUGIN_VERSION(0, 0, 1, 0),
+		makePluginVersion(0, 0, 1, 0),
 		dIcon);
 	addAuthor(QT_TRANSLATE_NOOP("Author","Aleksey Sidorov"),
 			  QT_TRANSLATE_NOOP("Task","Author"),
@@ -47,16 +47,16 @@ void DPlugin::init()
 							   QT_TRANSLATE_NOOP("plugin","Notification system based on Freedesktop DBus protocol"));
 }
 
-bool DPlugin::load()
+bool DBusNotificationsPlugin::load()
 {
 	return true;
 }
 
-bool DPlugin::unload()
+bool DBusNotificationsPlugin::unload()
 {
 	return false;
 }
 
 
-QUTIM_EXPORT_PLUGIN(DPlugin)
+QUTIM_EXPORT_PLUGIN(DBusNotificationsPlugin)
 

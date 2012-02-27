@@ -211,7 +211,7 @@ void XStatusPlugin::init()
 {
     setInfo(QT_TRANSLATE_NOOP("Plugin", "OscarXStatus"),
             QT_TRANSLATE_NOOP("Plugin", "Additional statuses for oscar protocol"),
-            PLUGIN_VERSION(0, 0, 1, 0));
+            makePluginVersion(0, 0, 1, 0));
     setCapabilities(Loadable);
     addAuthor(
                 QT_TRANSLATE_NOOP("Author", "Alexey Prokhin"),

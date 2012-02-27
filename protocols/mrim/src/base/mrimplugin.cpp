@@ -43,7 +43,7 @@ void MrimPlugin::init()
     LocalizedString plugName = QT_TRANSLATE_NOOP("Plugin", "MRIM");
 
     setInfo(plugName, info,
-            PLUGIN_VERSION(MRIM_MAJOR_VER, MRIM_MINOR_VER, MRIM_SECMINOR_VER, MRIM_PATCH_VER));
+            makePluginVersion(MRIM_MAJOR_VER, MRIM_MINOR_VER, MRIM_SECMINOR_VER, MRIM_PATCH_VER));
 
     addAuthor(QT_TRANSLATE_NOOP("Author", "Peter Rusanov"),
               QT_TRANSLATE_NOOP("Task", "Author"),

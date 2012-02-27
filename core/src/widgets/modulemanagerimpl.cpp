@@ -29,8 +29,6 @@
 #include <QVariant>
 #include <QFile>
 #include <QDebug>
-#include <QScriptValue>
-#include <QScriptEngine>
 #include <QTimer>
 #include <QSslSocket>
 #include <qutim/protocol.h>

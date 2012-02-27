@@ -33,7 +33,7 @@ void SDLSoundPlugin::init()
 			  QLatin1String("euroelessar@yandex.ru"));
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "SDL sound engine"),
 			QT_TRANSLATE_NOOP("Plugin", "Sound engine based on Simple DirectMedia Layer"),
-			PLUGIN_VERSION(0, 1, 0, 0),
+			makePluginVersion(0, 1, 0, 0),
 			ExtensionIcon());
 	addExtension<SDLSoundBackend>(
 			QT_TRANSLATE_NOOP("Plugin", "SDL sound engine"),

@@ -45,7 +45,7 @@ void MassMessaging::init()
 			  QLatin1String("sauron.me"));
 	setInfo(QT_TRANSLATE_NOOP("Plugin", "MassMessaging"),
 			QT_TRANSLATE_NOOP("Plugin", "Simple messaging to contact list"),
-			PLUGIN_VERSION(0, 1, 0, 0));
+			makePluginVersion(0, 1, 0, 0));
 	setCapabilities(Loadable);
 }
 

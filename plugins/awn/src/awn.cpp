@@ -41,7 +41,7 @@ void AWNPlugin::init ()
               );
     setInfo(QT_TRANSLATE_NOOP("Plugin", "AWN"),
             QT_TRANSLATE_NOOP("Plugin", "Avant window navigator dock integration"),
-            PLUGIN_VERSION(0, 0, 1, 0),
+            makePluginVersion(0, 0, 1, 0),
             icon
             );
     addExtension<AWNService>(QT_TRANSLATE_NOOP("Plugin", "AWN"),
