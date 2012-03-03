@@ -95,7 +95,6 @@ set_target_properties(libqutim PROPERTIES
 #endif( CMAKE_COMPILER_IS_GNUCXX )
 
 file( MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/include/qutim" )
-file( MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/include/qutim/utils" )
 file( MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/include/qutim_hook" )
 configure_file( version.h.cmake "${CMAKE_CURRENT_BINARY_DIR}/include/qutim_hook/libqutim_version.h" )
 file( GLOB_RECURSE QUTIM_INCLUDE_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/*.h" )
@@ -108,8 +107,8 @@ endforeach( header )
 list( APPEND QUTIM_INSTALL_HEADERS "${CMAKE_CURRENT_BINARY_DIR}/include/qutim_hook/libqutim_version.h" )
 set( QUTIM_LIBRARY libqutim CACHE INTERNAL "" )
 set( QUTIM_INCLUDE_DIR "${CMAKE_CURRENT_BINARY_DIR}/include" CACHE INTERNAL "" )
-QUTIM_GENERATE_INCLUDES("" "${QUTIM_INSTALL_HEADERS}")
-QUTIM_GENERATE_INCLUDES("qutim_hook" "${CMAKE_CURRENT_SOURCE_DIR}/libqutim_global.h")
+QUTIM_GENERATE_INCLUDES("qutim" "${QUTIM_INSTALL_HEADERS}")
+QUTIM_GENERATE_INCLUDES("qutim_hook" "${CMAKE_CURRENT_SOURCE_DIR}/qutim/libqutim_global.h")
 
 IF(APPLE)
 	FIND_LIBRARY(CARBON_LIBRARY Carbon)

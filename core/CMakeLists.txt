@@ -108,7 +108,7 @@ endif(MINGW)
 add_subdirectory(lib)
 
 find_package(QutIM REQUIRED)
-include_directories( ${QUTIM_INCLUDE_DIR} "${CMAKE_CURRENT_BINARY_DIR}/libqutim/include/qutim_hook" )
+include_directories( ${QUTIM_INCLUDE_DIR} "${CMAKE_CURRENT_BINARY_DIR}/lib/include/qutim_hook" )
 
 REMOVE_DEFINITIONS ( -DLIBQUTIM_LIBRARY )
 

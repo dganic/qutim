@@ -35,8 +35,7 @@ AWNService::AWNService()
     m_uread = 0;
     m_item = 0;
     m_activeAccount = 0;
-    m_iconTimer = 0;
-	//m_cws = 0;
+	m_iconTimer = 0;
     m_awn = new QDBusInterface("net.launchpad.DockManager",
                               "/net/launchpad/DockManager",
                               "net.launchpad.DockManager");
@@ -57,12 +56,10 @@ AWNService::AWNService()
         qDebug() << "[AWN] error: " << mes.errorName() << " : " << mes.errorMessage();
         return;
     }
-    if(! m_capabilities.contains("dock-item-icon-file")  ||
-       ! m_capabilities.contains("dock-item-message")    ||
-       ! m_capabilities.contains("menu-item-with-label") ||
-       ! m_capabilities.contains("menu-item-icon-name")    )
-    {
-        deleteLater();
+	if(!m_capabilities.contains("dock-item-icon-file")
+			|| !m_capabilities.contains("dock-item-message")
+			|| !m_capabilities.contains("menu-item-with-label")
+			|| !m_capabilities.contains("menu-item-icon-name")) {
         return;
     }
     m_icon_size = 128;

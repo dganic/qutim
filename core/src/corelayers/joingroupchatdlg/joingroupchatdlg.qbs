@@ -6,6 +6,9 @@ QutimPlugin {
 
 	Depends { name: "qt"; submodules: [ 'core', 'gui' ] }
 	Depends { name: "slidingstackedwidget" }
+	cpp.includePaths: [
+		"."
+	]
 
 	files: [
 		"joingroupchatdlg.plugin.json",

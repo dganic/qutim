@@ -18,16 +18,15 @@ QutimPlugin {
 	
 	Group {
 		fileTags: [ "devHeaders", "hpp" ]
-		files: [
-		"simplecontactlist.plugin.json",
-			"contactlist/abstractcontactlist.h",
-			"contactlist/abstractcontactmodel.h",
-			"contactlist/simplecontactlistview.h",
-			"contactlist/simplestatusdialog.h",
-			"contactlist/simplecontactlist.h",
-			"contactlist/simplecontactlistitem.h",
-			"contactlist/simplecontactlistsettings.h",
-			"contactlist/lineedit.h"
+                files: [
+                        "contactlist/abstractcontactlist.h",
+                        "contactlist/abstractcontactmodel.h",
+                        "contactlist/simplecontactlistview.h",
+                        "contactlist/simplestatusdialog.h",
+                        "contactlist/simplecontactlist.h",
+                        "contactlist/simplecontactlistitem.h",
+                        "contactlist/simplecontactlistsettings.h",
+                        "contactlist/lineedit.h"
 		]
 	}
 	

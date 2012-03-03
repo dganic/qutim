@@ -20,13 +20,14 @@ qutim_add_plugin(simplecontactdelegate
 )
 
 set(DEVEL_HEADERS
-	contactlist/abstractcontactlist.h
-	contactlist/abstractcontactmodel.h
-	contactlist/simplecontactlistview.h
-	contactlist/simplestatusdialog.h
-	contactlist/simplecontactlist.h
-	contactlist/simplecontactlistsettings.h
-	contactlist/lineedit.h
+        contactlist/abstractcontactlist.h
+        contactlist/abstractcontactmodel.h
+        contactlist/simplecontactlistview.h
+        contactlist/simplestatusdialog.h
+        contactlist/simplecontactlist.h
+        contactlist/simplecontactlistitem.h
+        contactlist/simplecontactlistsettings.h
+        contactlist/lineedit.h
 )
 qutim_generate_includes("qutim/simplecontactlist" ${DEVEL_HEADERS})
 
