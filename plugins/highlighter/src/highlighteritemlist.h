@@ -2,7 +2,8 @@
 **
 ** qutIM - instant messenger
 **
-** Copyright © 2011 Ruslan Nigmatullin <euroelessar@yandex.ru>
+** Copyright © 2011 Nikita Belov <null@deltaz.org>
+** Copyright © 2012 Nicolay Izoderov <nico-izo@ya.ru>
 **
 *****************************************************************************
 **
@@ -22,35 +23,47 @@
 ** $QUTIM_END_LICENSE$
 **
 ****************************************************************************/
-#include "aescryptomodule.h"
-#include "aescryptoservice.h"
 
-namespace AesCrypto
+#ifndef HIGHLIGHTERITEMLIST_H
+#define HIGHLIGHTERITEMLIST_H
+
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QListWidgetItem>
+#include <QListWidget>
+#include <QPushButton>
+#include <QWidget>
+#include <QEvent>
+
+class HighlighterItemList : public QWidget
 {
+	Q_OBJECT
 
-	void AesCryptoModule::init()
-	{
-		setInfo(QT_TRANSLATE_NOOP("Plugin", "AES crypto service loader"),
-				QT_TRANSLATE_NOOP("Plugin", "Default qutIM crypto implementation. Based on algorithm aes256"),
-				makePluginVersion(0, 0, 1, 0));
-		addAuthor(QLatin1String("euroelessar"));
-		addExtension<AesCryptoService>(QT_TRANSLATE_NOOP("Plugin", "AES crypto"),
-									   QT_TRANSLATE_NOOP("Plugin", "Default qutIM crypto implementation. Based on algorithm aes256")
-									   );	
-	}
+public:
+	typedef QSharedPointer<HighlighterItemList> Guard;
+	
+	HighlighterItemList(const QRegExp &regex, QListWidget *regexList);
+	~HighlighterItemList();
+	
+	QRegExp regexp() const;
 
-	bool AesCryptoModule::load()
-	{
-		return false;
-	}
+	QListWidgetItem *item();
+	void setItem(QListWidgetItem *item);
 
-	bool AesCryptoModule::unload()
-	{
-		return false;
-	}
+	static QString getTranslatedRegexpType(const QRegExp::PatternSyntax &syntax);
 
+signals:
+	void buttonClicked();
 
-}
+protected:
+	virtual void changeEvent(QEvent *e);
 
-QUTIM_EXPORT_PLUGIN(AesCrypto::AesCryptoModule)
+private:
+	QLabel *m_label;
+	QPushButton *m_button;
+	QListWidgetItem *m_item;
+	QRegExp m_regexp;
+};
+
+#endif // HIGHLIGHTERITEMLIST_H
 

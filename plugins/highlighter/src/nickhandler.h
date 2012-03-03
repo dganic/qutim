@@ -2,7 +2,9 @@
 **
 ** qutIM - instant messenger
 **
-** Copyright © 2011 Ruslan Nigmatullin <euroelessar@yandex.ru>
+** Copyright © 2011 Alexander Kazarin <boiler@co.ru>
+** Copyright © 2011 Aleksey Sidorov <gorthauer87@yandex.ru>
+** Copyright © 2012 Nicolay Izoderov <nico-izo@ya.ru>
 **
 *****************************************************************************
 **
@@ -22,35 +24,36 @@
 ** $QUTIM_END_LICENSE$
 **
 ****************************************************************************/
-#include "aescryptomodule.h"
-#include "aescryptoservice.h"
 
-namespace AesCrypto
+
+#ifndef HIGHLIGHTER_MESSAGEHANDLER_H
+#define HIGHLIGHTER_MESSAGEHANDLER_H
+#include <qutim/messagehandler.h>
+#include <QRegExp>
+#include <QLatin1String>
+#include <QStringRef>
+#include <QTextDocument>
+#include <QChar>
+
+#include <qutim/conference.h>
+
+namespace Highlighter {
+
+class NickHandler : public QObject, public qutim_sdk_0_3::MessageHandler
 {
+    Q_OBJECT
+public:
+	explicit NickHandler();
+protected:
+	virtual qutim_sdk_0_3::MessageHandler::Result doHandle(qutim_sdk_0_3::Message &message, QString *reason);
+public slots:
+	void loadSettings();
+private:
+	bool m_enableAutoHighlights;
+	QList<QRegExp> m_regexps;
+};
 
-	void AesCryptoModule::init()
-	{
-		setInfo(QT_TRANSLATE_NOOP("Plugin", "AES crypto service loader"),
-				QT_TRANSLATE_NOOP("Plugin", "Default qutIM crypto implementation. Based on algorithm aes256"),
-				makePluginVersion(0, 0, 1, 0));
-		addAuthor(QLatin1String("euroelessar"));
-		addExtension<AesCryptoService>(QT_TRANSLATE_NOOP("Plugin", "AES crypto"),
-									   QT_TRANSLATE_NOOP("Plugin", "Default qutIM crypto implementation. Based on algorithm aes256")
-									   );	
-	}
+} // namespace Highlighter
 
-	bool AesCryptoModule::load()
-	{
-		return false;
-	}
-
-	bool AesCryptoModule::unload()
-	{
-		return false;
-	}
-
-
-}
-
-QUTIM_EXPORT_PLUGIN(AesCrypto::AesCryptoModule)
+#endif // HIGHLIGHTER_MESSAGEHANDLER_H
 

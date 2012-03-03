@@ -2,7 +2,9 @@
 **
 ** qutIM - instant messenger
 **
-** Copyright © 2011 Ruslan Nigmatullin <euroelessar@yandex.ru>
+** Copyright © 2011 Alexander Kazarin <boiler@co.ru>
+** Copyright © 2011 Aleksey Sidorov <gorthauer87@yandex.ru>
+** Copyright © 2012 Nicolay Izoderov <nico-izo@ya.ru>
 **
 *****************************************************************************
 **
@@ -22,35 +24,34 @@
 ** $QUTIM_END_LICENSE$
 **
 ****************************************************************************/
-#include "aescryptomodule.h"
-#include "aescryptoservice.h"
 
-namespace AesCrypto
+
+#ifndef HIGHLIGHTERPLUGIN_H
+#define HIGHLIGHTERPLUGIN_H
+#include <qutim/plugin.h>
+
+namespace qutim_sdk_0_3
 {
-
-	void AesCryptoModule::init()
-	{
-		setInfo(QT_TRANSLATE_NOOP("Plugin", "AES crypto service loader"),
-				QT_TRANSLATE_NOOP("Plugin", "Default qutIM crypto implementation. Based on algorithm aes256"),
-				makePluginVersion(0, 0, 1, 0));
-		addAuthor(QLatin1String("euroelessar"));
-		addExtension<AesCryptoService>(QT_TRANSLATE_NOOP("Plugin", "AES crypto"),
-									   QT_TRANSLATE_NOOP("Plugin", "Default qutIM crypto implementation. Based on algorithm aes256")
-									   );	
-	}
-
-	bool AesCryptoModule::load()
-	{
-		return false;
-	}
-
-	bool AesCryptoModule::unload()
-	{
-		return false;
-	}
-
-
+	class SettingsItem;
 }
 
-QUTIM_EXPORT_PLUGIN(AesCrypto::AesCryptoModule)
+namespace Highlighter {
+
+class NickHandler;
+class HighlighterPlugin : public qutim_sdk_0_3::Plugin
+{
+	Q_OBJECT
+	Q_CLASSINFO("DebugName", "Highlighter")
+	Q_CLASSINFO("Uses", "ChatLayer")
+public:
+	virtual void init();
+	virtual bool load();
+	virtual bool unload();
+private:
+	QWeakPointer<NickHandler> m_handler;
+	qutim_sdk_0_3::SettingsItem *m_settingsItem;
+};
+}
+
+#endif // HIGHLIGHTERPLUGIN_H
 
